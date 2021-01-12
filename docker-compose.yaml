@@ -2,13 +2,13 @@ version: "3.4"
 
 services:
   mssqldata:
-    image: microsoft/mssql-server-linux:latest
+    image: microsoft/mssql-server-linux
     networks: 
       - sqlservernet
     entrypoint: /bin/bash
 
   sqlserver:
-    image: microsoft/mssql-server-linux:latest
+    image: microsoft/mssql-server-linux
     container_name: mssqlserver
     hostname: mssqls-server
     networks: 
@@ -22,7 +22,7 @@ services:
     # bash será executado a partir do caminho informado abaixo.
     working_dir: /usr/src/app 
     # Executa o script entrypoint.sh que irá executar todos os scripts sql e csv
-    command: bash -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: EmergingCode@2021

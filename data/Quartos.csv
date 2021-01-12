@@ -1,0 +1,5 @@
+Codigo,CodigoHotel,Nome,Descricao,Capacidade,QuantidadeDisponicel,PrecoPorNoite
+e08e6626-b511-4a5f-89c3-28aa48718de1,a4bd64d6-dc07-4bdc-b36f-36faee0a2838,Quarto Simples,Quarto simples para 2 pessoas,2,10,120.00
+3d4631c6-fcdf-45d5-b940-ee9e5aa1ffbf,a4bd64d6-dc07-4bdc-b36f-36faee0a2838,Quarto Familia,Quarto para a familia passar férias,5,10,485.00
+db510ae8-e969-42e5-ab38-087f23f2248d,7efe7014-0d86-41b2-9031-d3d172cd0f11,Quarto Simples,Quarto simples para 1 pessoa,1,3,120.00
+96fd37f6-e6cc-426c-a9a6-1cbaa06111d7,7efe7014-0d86-41b2-9031-d3d172cd0f11,Quarto Luxo,Quarto de luxo para comemorar momentos especiais,2,10,550.00

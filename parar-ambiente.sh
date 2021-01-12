@@ -1,0 +1,1 @@
+docker-compose -f ./docker-compose.yaml down; docker rm $(docker ps -q --filter status=exited) ; docker ps -a

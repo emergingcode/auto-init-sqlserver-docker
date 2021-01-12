@@ -1,0 +1,35 @@
+version: "3.4"
+
+services:
+  mssqldata:
+    image: microsoft/mssql-server-linux:latest
+    networks: 
+      - sqlservernet
+    entrypoint: /bin/bash
+
+  sqlserver:
+    image: microsoft/mssql-server-linux:latest
+    container_name: mssqlserver
+    hostname: mssqls-server
+    networks: 
+      - sqlservernet
+    ports:
+      - 1433:1433
+    volumes:
+      - /var/opt/mssql
+      # os scripts serão compiados para dentro da pasta configurada abaixo
+      - ./:/usr/src/app 
+    # bash será executado a partir do caminho informado abaixo.
+    working_dir: /usr/src/app 
+    # Executa o script entrypoint.sh que irá executar todos os scripts sql e csv
+    command: bash -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: EmergingCode@2021
+      DATABASE_NAME: EmergingBooking
+    # Não use esta configuração, se você não quiser persistir os dados entre o processo de docker up ou down.
+    volumes_from:
+      - mssqldata
+
+networks:
+  sqlservernet:
